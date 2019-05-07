@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "logId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "From": {
+                    "description": "Search from this date.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "Query": {
+                    "description": "Lucene query.",
+                    "type": "string"
+                },
+                "To": {
+                    "description": "Search to this date.",
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

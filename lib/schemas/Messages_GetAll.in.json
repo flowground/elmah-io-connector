@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "logId": {
+            "required": true,
+            "type": "string"
+        },
+        "pageIndex": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "pageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "query": {
+            "required": false,
+            "type": "string"
+        },
+        "from": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "to": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "includeHeaders": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

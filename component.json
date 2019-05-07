@@ -1,0 +1,299 @@
+{
+    "title": "elmah.io",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/elmah.io/v3/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.elmah.io/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKey": {
+                "label": "api_key (apiKey)",
+                "viewClass": "TextFieldView",
+                "note": "API Key Authentication"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Deployments_GetAll": {
+            "main": "./lib/actions/Deployments_GetAll.js",
+            "title": "Fetch a list of deployments.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Deployments_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Deployments_Create": {
+            "main": "./lib/actions/Deployments_Create.js",
+            "title": "Create a new deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Deployments_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Deployments_Delete": {
+            "main": "./lib/actions/Deployments_Delete.js",
+            "title": "Delete a deployment by its ID.",
+            "description": "This endpoint doesn't clear the version number of messages already annotated with this deployment version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Deployments_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Deployments_Get": {
+            "main": "./lib/actions/Deployments_Get.js",
+            "title": "Fetch a deployment by its ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Deployments_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Logs_GetAll": {
+            "main": "./lib/actions/Logs_GetAll.js",
+            "title": "Fetch a list of logs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Logs_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Logs_Create": {
+            "main": "./lib/actions/Logs_Create.js",
+            "title": "Create a new log.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Logs_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Logs_Get": {
+            "main": "./lib/actions/Logs_Get.js",
+            "title": "Fetch a log by its ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Logs_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Messages_DeleteAll": {
+            "main": "./lib/actions/Messages_DeleteAll.js",
+            "title": "Deletes a list of messages by logid and query.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Messages_DeleteAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Messages_GetAll": {
+            "main": "./lib/actions/Messages_GetAll.js",
+            "title": "Fetch messages from a log.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Messages_GetAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Messages_Create": {
+            "main": "./lib/actions/Messages_Create.js",
+            "title": "Create a new message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Messages_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Messages_Delete": {
+            "main": "./lib/actions/Messages_Delete.js",
+            "title": "Delete a message by its ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Messages_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Messages_Get": {
+            "main": "./lib/actions/Messages_Get.js",
+            "title": "Fetch a message by its ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Messages_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Messages_Hide": {
+            "main": "./lib/actions/Messages_Hide.js",
+            "title": "Hide a message by its ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Messages_Hide.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

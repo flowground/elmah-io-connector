@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "created": {
+                    "description": "When was this deployment created in UTC. Defaults to current time if not specified.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Optional description of this deployment. Can be markdown or clear text.",
+                    "type": "string"
+                },
+                "logId": {
+                    "description": "As default, deployments are attached all logs of the organization. If you want a deployment to\r\n            attach to a single log only, set this to the ID of that log.",
+                    "type": "string"
+                },
+                "userEmail": {
+                    "description": "The email of the person responsible for creating this deployment. This can be the email taken from\r\n            your deployment server (like VSTS or Octopus).",
+                    "type": "string"
+                },
+                "userName": {
+                    "description": "The name of the person responsible for creating this deployment. This can be the name taken from\r\n            your deployment server (like VSTS or Octopus).",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version number of this deployment. The value of version can be a SemVer compliant string or any other\r\n            syntax that you are using as your version numbering scheme.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "version"
+            ],
+            "type": "object"
+        }
+    }
+}

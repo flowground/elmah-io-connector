@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "name": {
+                    "description": "Name of the new log.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
